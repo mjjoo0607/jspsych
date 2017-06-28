@@ -43,6 +43,6 @@ app.post('/experiment-data', function(request, response){
 })
 
 
-var server = app.listen(process.env.PORT || 8080, function(){
+var server = app.listen(process.env.PORT, function(){
     console.log("Listening on port %d", server.address().port);
 });
