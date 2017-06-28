@@ -23,7 +23,6 @@ app.use(body_parser.json());
 
 
 app.set('views', __dirname + '/public/views');
-app.set('views', __dirname + '/jspsych');
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
