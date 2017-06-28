@@ -22,16 +22,16 @@ app.use('/jspsych-5.0.3', express.static(__dirname + "/jspsych-5.0.3"));
 app.use(body_parser.json());
 
 
-app.set('views', __dirname + '/public/views');
+app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
 
 app.get('/', function(request, response) {
-    response.render(path.join(__dirname, '../public/views','index.html'));
+    response.render('index.html');
 });
 app.get('/experiment', function(request, response) {
-    response.render(path.join(__dirname, '../public/views','experiment 9.html'));
+    response.render('experiment 9.html');
 });
 
 app.post('/experiment-data', function(request, response){
