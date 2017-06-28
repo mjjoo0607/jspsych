@@ -22,7 +22,7 @@ app.use('/jspsych-5.0.3', express.static(__dirname + "/jspsych-5.0.3"));
 app.use(body_parser.json());
 
 
-app.set('view engine', 'ejs');
+app.set('views',__dirname,+ '/public/views');
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
