@@ -27,7 +27,9 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
 
-
+app.get('/', function(request, response) {
+    response.render('index.html');
+});
 app.get('/experiment', function(request, response) {
     response.render('experiment 9.html');
 });
