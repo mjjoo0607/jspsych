@@ -28,10 +28,10 @@ app.set('view engine', 'html');
 
 
 app.get('/', function(request, response) {
-    response.render('index.html');
+    response.render(path.join(__dirname, '../public/views','index.html'));
 });
 app.get('/experiment', function(request, response) {
-    response.render('experiment 9.html');
+    response.render(path.join(__dirname, '../public/views','experiment 9.html'));
 });
 
 app.post('/experiment-data', function(request, response){
