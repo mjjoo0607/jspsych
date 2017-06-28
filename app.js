@@ -26,9 +26,7 @@ app.set('views', __dirname + '/public/views');
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
-app.get('/', function(request, response) {
-    response.render('index.html');
-});
+
 
 
 app.get('/experiment', function(request, response) {
