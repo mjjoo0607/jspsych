@@ -26,7 +26,7 @@
     text: "<p>Now, we are going to ask you some questions about yourself.</p>" +
     "<p>There are no right or wrong answers, we simply want to know more about you.</p>" +
     "<p>We are going to ask you to respond to the same set of personality questionnaires twice</p>" +
-    "<p>Once thinking about <strong>yourself as a university student, and once again thinking about yourself as a romantic partner.</strong></p>" +
+    "<p>using <strong>1) 7-point scale and 2) 'Me'- 'Not-me' task.</strong></p>" +
     "<p>Please follow the instructions on the following screens.</p>" +
     "<p>Ready? Press any key to begin.</p>"
   };
@@ -34,8 +34,10 @@
   /* define instructions block */
   var instructions_block = {
     type: "text",
-    text:"<p>A series of attributes will appear on the computer screen.</p> " +
-          "<p>For each attribute, please indicate whether the attribute is characteristic of you or not</p>" +
+    text: "<p>Before you start the task, think about your characteristics <strong>as a university student.</strong></p>" +
+          "<p>What kind of person are you as <strong>a university student?</strong></p> " +
+          "<p>A series of attributes will appear on the computer screen.</p> " +
+          "<p>For each attribute, please indicate whether the attribute is characteristic of you as a university student or not</p>" +
           "<p>by pressing the corresponding number key on the keyboard.</p>" +
           "<p>  </p>"+
           "<p><strong> Press 1 </strong>to indicate 'Me'</p>" +
@@ -44,32 +46,16 @@
         "<p class='small'><strong>Press 1</strong></p></div>" +
         "<div class='right center-content'><img src='img/Not me.png'></img>" +
         "<p class='small'><strong>Press 0</strong></p></div>" +
-        "<p>Only answer 'Me' if the attribute is <strong>VERY CHARACTERISTIC</strong> of you.</p>"+
+        "<p>Only answer 'Me' if the attribute is <strong>VERY CHARACTERISTIC</strong> of you as a university student.</p>"+
         "<p>Please provide your answer <strong>AS QUICKLY</strong> and accurately as possible.</p>"+
         "<p>Press any key to continue.</p>",
     timing_post_trial: 2000
   };
 
-
-
   /* define pretest message block */
   var pretest_msg_block = {
     type: "text",
     text: "<p>This is a practice session.</p>"+
-    "<p>Please place your index fingers on the keyboard indicating '1' and '0'</p>" +
-    "<p><strong>press 1</strong> if the attribute indicates you.</p>" +
-    "<p><strong>Press 0</strong> if the attribute does not describe you.</p>" +
-    "<p>Only answer 'Me' if the attribute is <strong>VERY CHARACTERISTIC</strong> of you.</p>"+
-    "<p>Please provide your answer <strong>AS QUICKLY</strong> and accurately as possible.</p>"+
-    "<p>Ready? Press any key to begin.</p>"
-  };
-
-  /* define test message block */
-  var test_msg_block = {
-    type: "text",
-    text: "<p>Now, let's begin the actual test session.</p>"+
-    "<p>Before you start the task, think about your characteristics <strong>as a university student.</strong></p>" +
-    "<p>What kind of person are you as <strong>a university student?</strong></p> " +
     "<p>Please place your index fingers on the keyboard indicating '1' and '0'</p>" +
     "<p>As mentioned before, <strong>press 1</strong> if the attribute indicates you as a university student.</p>" +
     "<p><strong>Press 0</strong> if the attribute does not describe you as a university student.</p>" +
@@ -79,18 +65,17 @@
   };
 
   /* define test message block */
-  var test_msg_block_2 = {
+  var test_msg_block = {
     type: "text",
-    text:
-    "<p>This time, think about your characteristics <strong>as a romantic partner.</strong></p>" +
-    "<p>What kind of person are you as <strong>a romantic partner?</strong></p> " +
+    text: "<p>Now, let's begin the actual test session.</p>"+
     "<p>Please place your index fingers on the keyboard indicating '1' and '0'</p>" +
-    "<p>As mentioned before, <strong>press 1</strong> if the attribute indicates you as a romantic partner.</p>" +
-    "<p><strong>Press 0</strong> if the attribute does not describe you as a romantic partner.</p>" +
-    "<p>Only answer 'Me' if the attribute is <strong>VERY CHARACTERISTIC</strong> of you as a romantic partner.</p>"+
+    "<p>As mentioned before, <strong>press 1</strong> if the attribute indicates you as a university student.</p>" +
+    "<p><strong>Press 0</strong> if the attribute does not describe you as a university student.</p>" +
+    "<p>Only answer 'Me' if the attribute is <strong>VERY CHARACTERISTIC</strong> of you as a university student.</p>"+
     "<p>Please provide your answer <strong>AS QUICKLY</strong> and accurately as possible.</p>"+
     "<p>Ready? Press any key to begin.</p>"
   };
+
 
   /* define test block */
 
@@ -270,8 +255,6 @@
   timeline.push(pretest_msg_block);
   timeline.push(pretest_block);
   timeline.push(test_msg_block);
-  timeline.push(test_block);
-  timeline.push(test_msg_block_2);
   timeline.push(test_block);
   timeline.push(debrief_block);
 
