@@ -205,7 +205,7 @@ var randomizing_blocks = [
 
 var random_order = jsPsych.randomization.shuffle(randomizing_blocks);
 var random_block = {
-  timeline: timeline.concat(random_order)
+  timeline: timeline.concat(randomizing_blocks[0],randomizing_blocks[1]);
 };
 
 var all_trials = jsPsych.randomization.repeat(test_stimuli, 1);
