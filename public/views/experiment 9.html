@@ -199,6 +199,115 @@
 
   var all_trials = jsPsych.randomization.repeat(test_stimuli, 1);
 
+  /* define test block 2*/
+
+  var test_stimuli_2 = [
+    {
+      stimulus: "img/openminded 2.png",
+      choices: ['1','0']
+    },
+    {
+      stimulus: "img/agreeable 2.png",
+      choices: ['1','0']
+    },
+    {
+      stimulus: "img/dishonest 2.png",
+      choices: ['1','0']
+    },
+    {
+      stimulus: "img/lazy 2.png",
+      choices: ['1','0']
+    },
+    {
+      stimulus: "img/stubborn 2.png",
+      choices: ['1','0']
+    },
+    {
+      stimulus: "img/hardworking 2.png",
+      choices: ['1','0']
+    },
+    {
+      stimulus: "img/artistic 2.png",
+      choices: ['1','0']
+    },
+    {
+      stimulus: "img/disorganized 2.png",
+      choices: ['1','0']
+    },
+    {
+      stimulus: "img/irritable 2.png",
+      choices: ['1','0']
+    },
+    {
+      stimulus: "img/athletic 2.png",
+      choices: ['1','0']
+    },
+    {
+      stimulus: "img/thoughtful 2.png",
+      choices: ['1','0']
+    },
+    {
+      stimulus: "img/anxious 2.png",
+      choices: ['1','0']
+    },
+    {
+      stimulus: "img/bossy 2.png",
+      choices: ['1','0']
+    },
+    {
+      stimulus: "img/patient 2.png",
+      choices: ['1','0']
+    },
+    {
+      stimulus: "img/intelligent 2.png",
+      choices: ['1','0']
+    },
+    {
+      stimulus: "img/unkind 2.png",
+      choices: ['1','0']
+    },
+    {
+      stimulus: "img/inconsiderate 2.png",
+      choices: ['1','0']
+    },
+    {
+      stimulus: "img/selfish 2.png",
+      choices: ['1','0']
+    },
+    {
+      stimulus: "img/funny 2.png",
+      choices: ['1','0']
+    },
+    {
+      stimulus: "img/warm 2.png",
+      choices: ['1','0']
+    },
+    {
+      stimulus: "img/expressive 2.png",
+      choices: ['1','0']
+    },
+    {
+      stimulus: "img/creative 2.png",
+      choices: ['1','0']
+    },
+    {
+      stimulus: "img/enthusiastic 2.png",
+      choices: ['1','0']
+    },
+    {
+      stimulus: "img/clumsy 2.png",
+      choices: ['1','0']
+    },
+    {
+      stimulus: "img/absentminded 2.png",
+      choices: ['1','0']
+    }
+  ];
+
+  var all_trials_2 = jsPsych.randomization.repeat(test_stimuli_2, 1);
+
+
+
   var post_trial_gap = function() {
     return Math.floor( Math.random() * 1500 ) + 750;
   };
@@ -221,6 +330,20 @@
 
 
   };
+  var test_block_2 = {
+    type: "single-stim",
+    choices: ['1','0'],
+    timing_post_trial: post_trial_gap,
+    timeline: all_trials_2
+
+
+  };
+
+  /*randomize the test blocks*/
+  var test_1 = [test_msg_block,test_block];
+  var test_2 = [test_msg_block_2, test_block_2];
+  var tests = [test_1, test_2];
+  var randomtests = jsPsych.randomization.shuffle(tests);
 
   /* define debrief block */
 
@@ -265,13 +388,10 @@
 
   /* create experiment timeline array */
   var timeline = [];
-  timeline.push(welcome_block);
   timeline.push(instructions_block);
   timeline.push(pretest_msg_block);
   timeline.push(pretest_block);
-  timeline.push(test_msg_block);
-  timeline.push(test_block);
-  timeline.push(test_msg_block_2);
+  timeline.concat(randomtests[0], randomtests[1])
   timeline.push(test_block);
   timeline.push(debrief_block);
 
