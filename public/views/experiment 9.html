@@ -202,7 +202,10 @@ var randomizing_blocks = [
   [test_msg_block, test_block],
   [test_msg_block_2, test_block]
 ];
-var random_order = jsPsych.randomization.shuffle(randomizing_blocks);
+
+var experiment_random ={
+  timeline: timeline.concat(randomizing_blocks[0], randomizing_blocks[1])
+};
 
 var all_trials = jsPsych.randomization.repeat(test_stimuli, 1);
 
@@ -276,7 +279,7 @@ var post_trial_gap = function() {
   timeline.push(instructions_block);
   timeline.push(pretest_msg_block);
   timeline.push(pretest_block);
-  timeline.concat(randomizing_blocks[0], randomizing_blocks[1]);
+  timeline.push(experiment_random);
   timeline.push(debrief_block);
 
 /*create unique data file according to trial# of the participants*/
