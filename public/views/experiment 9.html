@@ -340,8 +340,14 @@
   };
 
   /*randomize the test blocks*/
-  var test_1 = [test_msg_block,test_block];
-  var test_2 = [test_msg_block_2,test_block_2];
+  var test_1 = [];
+  timeline.push(test_msg_block);
+  timeline.push(test_block);
+
+  var test_2 = [];
+  timeline.push(test_msg_block_2);
+  timeline.push(test_block_2);
+  
   var tests = [test_1, test_2];
   var randomtests = jsPsych.randomization.shuffle(tests);
 
