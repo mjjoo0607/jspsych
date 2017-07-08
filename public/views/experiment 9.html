@@ -341,7 +341,7 @@
 
   /*randomize the test blocks*/
   var test_1 = [test_msg_block,test_block];
-  var test_2 = [test_msg_block_2, test_block_2];
+  var test_2 = [test_msg_block_2,test_block_2];
   var tests = [test_1, test_2];
   var randomtests = jsPsych.randomization.shuffle(tests);
 
@@ -391,7 +391,7 @@
   timeline.push(instructions_block);
   timeline.push(pretest_msg_block);
   timeline.push(pretest_block);
-  timeline.concat(randomtests[0], randomtests[1])
+  timeline.push(randomtests)
   timeline.push(test_block);
   timeline.push(debrief_block);
 
