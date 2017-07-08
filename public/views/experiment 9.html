@@ -203,7 +203,12 @@ var randomizing_blocks = [
   [test_msg_block_2, test_block]
 ];
 var random_order = jsPsych.randomization.shuffle(randomizing_blocks);
-var experiment = experiment.concat(randomizing_blocks[0],randomizing_blocks[1])
+var experiment = {
+  type:"experiment"
+  timeline: random_order
+};
+
+experiment = experiment.concat(randomizing_blocks[0],randomizing_blocks[1])
 
 var all_trials = jsPsych.randomization.repeat(test_stimuli, 1);
 
