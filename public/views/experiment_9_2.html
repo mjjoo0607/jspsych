@@ -197,18 +197,9 @@
     }
   ];
 
-//create randomized blocks
-var randomizing_blocks = [
-  [test_msg_block, test_block],
-  [test_msg_block_2, test_block]
-];
+  var all_trials = jsPsych.randomization.repeat(test_stimuli, 1);
 
-var random_order = jsPsych.randomization.shuffle(randomizing_blocks);
-var random_block = timeline.concat(random_order);
-
-var all_trials = jsPsych.randomization.repeat(test_stimuli, 1);
-
-var post_trial_gap = function() {
+  var post_trial_gap = function() {
     return Math.floor( Math.random() * 1500 ) + 750;
   };
 
@@ -278,7 +269,10 @@ var post_trial_gap = function() {
   timeline.push(instructions_block);
   timeline.push(pretest_msg_block);
   timeline.push(pretest_block);
-  timeline.push(random_block);
+  timeline.push(test_msg_block);
+  timeline.push(test_block);
+  timeline.push(test_msg_block_2);
+  timeline.push(test_block);
   timeline.push(debrief_block);
 
 /*create unique data file according to trial# of the participants*/
