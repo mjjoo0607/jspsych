@@ -92,6 +92,12 @@
     "<p>Ready? Press any key to begin.</p>"
   };
 
+  /*define the id*/
+  var id_question = {
+    type: 'survey-text'
+    questions: ['Please enter the id code that you provided at the beginning of the study.'],
+  };
+
   /* define test block */
 
   var test_stimuli = [
@@ -383,6 +389,7 @@
 
   /* create experiment timeline array */
   var timeline = [];
+  timeline.push(id_question)
   timeline.push(instructions_block);
   timeline.push(pretest_msg_block);
   timeline.push(pretest_block);
