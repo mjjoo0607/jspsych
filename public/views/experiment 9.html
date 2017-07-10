@@ -412,15 +412,14 @@ var end = [];
 var randomized = jsPsych.randomization.shuffle([main1, main2]);
 
   /* create experiment timeline array */
-  /*var timeline = [];
+  var timeline = [];
   timeline.push(id_question)
   timeline.push(instructions_block);
   timeline.push(pretest_msg_block);
   timeline.push(pretest_block);
-  timeline.push(main_random);
-  timeline.push(debrief_block);*/
+  timeline.push(randomized);
+  timeline.push(debrief_block);
 
-  var timeline = timeline.concat(start,randomized,end);
 
 /*create unique data file according to trial# of the participants*/
   var currentTimeMS = Date.now();
@@ -435,7 +434,7 @@ var randomized = jsPsych.randomization.shuffle([main1, main2]);
  }
 
  jsPsych.init({
-   timeline : [start, randomized,end],
+   timeline : timeline,
    display_element: $('#jspsych_target'),
    on_finish: function() {
      $.ajax({
