@@ -420,9 +420,8 @@ var randomized = jsPsych.randomization.shuffle([main1, main2]);
   timeline.push(main_random);
   timeline.push(debrief_block);*/
 
-  var timeline = [];
-  timeline = timeline.concat(start,randomized,end)
-  
+  var timeline = timeline.concat(start,randomized,end);
+
 /*create unique data file according to trial# of the participants*/
   var currentTimeMS = Date.now();
 
