@@ -435,7 +435,7 @@ var randomized = jsPsych.randomization.shuffle([main1, main2]);
  }
 
  jsPsych.init({
-   timeline : timeline
+   timeline : [start, randomized,end],
    display_element: $('#jspsych_target'),
    on_finish: function() {
      $.ajax({
