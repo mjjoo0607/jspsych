@@ -388,17 +388,40 @@
     }
   };
 
+  /*randomize test blocks*/
+
+  var start = [];
+  timeline.push(id_question);
+  timeline.push(instructions_block);
+  timeline.push(pretest_msg_block);
+  timeline.push(pretest_block);
+
+var main1 = [];
+
+  timeline.push(test_msg_block);
+  timeline.push(test_block);
+
+var main2 = [];
+
+  timeline.push(test_msg_block_2);
+  timeline.push(test_block_2);
+
+var end = [];
+  timeline.push(debrief_block);
+
+var randomized = jsPsych.randomization.shuffle([main1, main2]);
+
   /* create experiment timeline array */
-  var timeline = [];
+  /*var timeline = [];
   timeline.push(id_question)
   timeline.push(instructions_block);
   timeline.push(pretest_msg_block);
   timeline.push(pretest_block);
-  timeline.push(test_msg_block);
-  timeline.push(test_block);
-  timeline.push(test_msg_block_2);
-  timeline.push(test_block_2);
-  timeline.push(debrief_block);
+  timeline.push(main_random);
+  timeline.push(debrief_block);*/
+
+  /*var timeline = [];
+  timeline = timeline.concat(randomized);*/
 
 /*create unique data file according to trial# of the participants*/
   var currentTimeMS = Date.now();
@@ -413,7 +436,7 @@
  }
 
  jsPsych.init({
-   timeline:timeline,
+   timeline = timeline.concat(start,randomized,end)
    display_element: $('#jspsych_target'),
    on_finish: function() {
      $.ajax({
